@@ -1,0 +1,14 @@
+{
+  "name": "My Face",
+  "description": "A label, a bar and the value. Works with any source.",
+  "version": "1.0.0",
+  "author": "Your Name",
+  "apiVersion": 2,
+  "sources": ["any"],
+  "defaultSource": "cpu",
+  "width": 70,
+  "minWidth": 50,
+  "maxWidth": 120,
+  "supportsLightMode": true,
+  "supportsDarkMode": true
+}

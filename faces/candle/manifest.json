@@ -1,0 +1,21 @@
+{
+    "id": "10000000-0000-0000-0000-00000000001E",
+    "name": "Candle",
+    "description": "A candle that burns down as your time runs out.",
+    "version": "2.0.0",
+    "apiVersion": 2,
+    "sources": [
+        "countdown",
+        "timer",
+        "battery",
+        "bluetooth",
+        "progress"
+    ],
+    "defaultSource": "countdown",
+    "width": 50,
+    "minWidth": 16,
+    "maxWidth": 64,
+    "author": "Multimeter",
+    "supportsLightMode": true,
+    "supportsDarkMode": true
+}

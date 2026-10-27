@@ -1,0 +1,18 @@
+{
+    "id": "10000000-0000-0000-0000-000000000001",
+    "name": "Classic Battery Glyph",
+    "description": "A simple battery icon.",
+    "version": "2.0.0",
+    "apiVersion": 2,
+    "sources": [
+        "battery",
+        "bluetooth"
+    ],
+    "defaultSource": "battery",
+    "width": 28,
+    "minWidth": 24,
+    "maxWidth": 36,
+    "author": "Multimeter",
+    "supportsLightMode": true,
+    "supportsDarkMode": true
+}

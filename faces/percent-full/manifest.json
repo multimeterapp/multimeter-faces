@@ -1,0 +1,22 @@
+{
+    "id": "10000000-0000-0000-0000-000000000003",
+    "name": "Percent Full",
+    "description": "Counts up while charging, down when not.",
+    "version": "2.0.0",
+    "apiVersion": 2,
+    "sources": [
+        "battery",
+        "bluetooth",
+        "cpu",
+        "memory",
+        "disk",
+        "progress"
+    ],
+    "defaultSource": "battery",
+    "width": 56,
+    "minWidth": 48,
+    "maxWidth": 64,
+    "author": "Multimeter",
+    "supportsLightMode": true,
+    "supportsDarkMode": true
+}

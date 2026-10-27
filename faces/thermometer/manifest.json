@@ -1,0 +1,15 @@
+{
+    "id": "10000000-0000-0000-0000-000000000017",
+    "name": "Thermometer",
+    "description": "A thermometer whose mercury rises with the value, from cool to hot.",
+    "version": "2.0.0",
+    "apiVersion": 2,
+    "sources": ["any"],
+    "defaultSource": "power",
+    "width": 64,
+    "minWidth": 30,
+    "maxWidth": 100,
+    "author": "Multimeter",
+    "supportsLightMode": true,
+    "supportsDarkMode": true
+}

@@ -1,0 +1,45 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { background: transparent; height: 22px; overflow: hidden; }
+
+/* System look: label colors, monochrome until a tint or an alert colors it. */
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    font-variant-numeric: tabular-nums;
+    -webkit-font-smoothing: antialiased;
+    color: #fff;
+    --text: #fff;
+    --muted: rgba(255, 255, 255, 0.6);
+    --track: rgba(255, 255, 255, 0.24);
+    --accent: var(--text);
+    --charge: #30d158;
+    --warning: #ffd60a;
+    --critical: #ff453a;
+}
+[data-scheme="light"] body {
+    color: #000;
+    --text: #000;
+    --muted: rgba(0, 0, 0, 0.5);
+    --track: rgba(0, 0, 0, 0.16);
+    --charge: #1fa846;
+    --warning: #d99a00;
+    --critical: #e5322d;
+}
+
+/* Signal Bars: four rising bars; lit bars in the label color. */
+#meter { display: flex; align-items: center; justify-content: center; gap: 4px; width: 100%; white-space: nowrap; }
+#bars { display: block; flex: 0 0 auto; }
+.bar { fill: var(--track); }
+.bar.on { fill: var(--accent); }
+[data-state="warning"] .bar.on { fill: var(--warning); }
+[data-state="critical"] .bar.on { fill: var(--critical); }
+.charging .bar.on { fill: var(--charge); }
+[data-state="unavailable"] .bar { opacity: 0.45; }
+#value { font-size: 12px; font-weight: 500; color: var(--text); }
+.tinted #value { color: var(--accent); }
+[data-state="warning"] #value { color: var(--warning); }
+[data-state="critical"] #value { color: var(--critical); }
+[data-state="unavailable"] #value { color: var(--muted); }

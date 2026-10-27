@@ -1,0 +1,19 @@
+{
+    "id": "10000000-0000-0000-0000-000000000002",
+    "name": "Time Until",
+    "description": "Time left on battery, or until full while charging.",
+    "version": "2.0.0",
+    "apiVersion": 2,
+    "sources": [
+        "battery",
+        "timer",
+        "countdown"
+    ],
+    "defaultSource": "battery",
+    "width": 80,
+    "minWidth": 64,
+    "maxWidth": 100,
+    "author": "Multimeter",
+    "supportsLightMode": true,
+    "supportsDarkMode": true
+}

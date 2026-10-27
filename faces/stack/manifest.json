@@ -1,0 +1,15 @@
+{
+    "id": "10000000-0000-0000-0000-000000000011",
+    "name": "Stack",
+    "description": "A tiny label stacked over the value, so both fit in one narrow slot.",
+    "version": "2.0.0",
+    "apiVersion": 2,
+    "sources": ["any"],
+    "defaultSource": "cpu",
+    "width": 36,
+    "minWidth": 26,
+    "maxWidth": 64,
+    "author": "Multimeter",
+    "supportsLightMode": true,
+    "supportsDarkMode": true
+}

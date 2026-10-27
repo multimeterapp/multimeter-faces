@@ -1,0 +1,15 @@
+{
+    "id": "10000000-0000-0000-0000-000000000009",
+    "name": "LCD Readout",
+    "description": "Seven-segment digits on a backlit LCD, like a bench multimeter.",
+    "version": "2.0.0",
+    "apiVersion": 2,
+    "sources": ["any"],
+    "defaultSource": "cpu",
+    "width": 66,
+    "minWidth": 48,
+    "maxWidth": 110,
+    "author": "Multimeter",
+    "supportsLightMode": true,
+    "supportsDarkMode": true
+}

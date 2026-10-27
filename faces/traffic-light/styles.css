@@ -1,0 +1,54 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { background: transparent; height: 22px; overflow: hidden; }
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    font-variant-numeric: tabular-nums;
+    --text: #fff;
+    --muted: rgba(255, 255, 255, 0.5);
+    --warning: #ffd60a;
+    --critical: #ff453a;
+}
+[data-scheme="light"] body {
+    --text: #000;
+    --muted: rgba(0, 0, 0, 0.45);
+    --warning: #c98800;
+    --critical: #e0281f;
+}
+
+#meter { display: flex; align-items: center; justify-content: center; gap: 3px; white-space: nowrap; }
+#meter svg { display: block; flex: none; overflow: visible; }
+
+.value { font-size: 12px; font-weight: 500; color: var(--text); letter-spacing: -0.01em; }
+.value[hidden] { display: none; }
+.tinted .value { color: var(--tint); }
+[data-state="warning"] .value { color: var(--warning); }
+[data-state="critical"] .value { color: var(--critical); }
+[data-state="unavailable"] .value { color: var(--muted); }
+
+/* Traffic Light: a dark housing with red, yellow and green lamps, left to
+   right. One lamp is lit: green while normal, yellow at the warning level,
+   red when critical. Your color replaces the green lamp. */
+body { --housing: #1c1c1e; --rim: rgba(255, 255, 255, 0.4); --go: #30d158; }
+[data-scheme="light"] body { --housing: #2c2c2e; --rim: rgba(0, 0, 0, 0.85); --go: #30d158; }
+html body.tinted { --go: var(--tint); }
+
+.housing { fill: var(--housing); stroke: var(--rim); stroke-width: 1; }
+.lamp { opacity: 1; }
+.red { fill: #4a1a17; }
+.yellow { fill: #4a3a10; }
+.green { fill: #143d20; }
+.shine { fill: #fff; opacity: 0; }
+
+.lamp.on { stroke: rgba(255, 255, 255, 0.35); stroke-width: 0.75; }
+.red.on { fill: #ff453a; }
+.yellow.on { fill: #ffd60a; }
+.green.on { fill: var(--go); }
+.lit-red .shine:nth-of-type(1), .lit-yellow .shine:nth-of-type(2), .lit-green .shine:nth-of-type(3) { opacity: 0.55; }
+
+[data-state="unavailable"] .housing { fill: transparent; stroke: var(--muted); }
+[data-state="unavailable"] .lamp { fill: none; stroke: var(--muted); stroke-width: 1; }

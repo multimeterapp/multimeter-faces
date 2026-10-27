@@ -1,0 +1,22 @@
+{
+    "id": "10000000-0000-0000-0000-00000000001D",
+    "name": "Coffee Cup",
+    "description": "A mug of coffee that empties as the level drops, steaming while it charges.",
+    "version": "2.0.0",
+    "apiVersion": 2,
+    "sources": [
+        "battery",
+        "bluetooth",
+        "timer",
+        "countdown",
+        "progress",
+        "disk"
+    ],
+    "defaultSource": "battery",
+    "width": 50,
+    "minWidth": 22,
+    "maxWidth": 64,
+    "author": "Multimeter",
+    "supportsLightMode": true,
+    "supportsDarkMode": true
+}

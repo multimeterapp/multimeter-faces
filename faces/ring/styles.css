@@ -1,0 +1,51 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { background: transparent; height: 22px; overflow: hidden; }
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    font-variant-numeric: tabular-nums;
+    color: #fff;
+    --text: #fff;
+    --muted: rgba(255, 255, 255, 0.62);
+    --track: rgba(255, 255, 255, 0.22);
+    --accent: #30d158;
+    --warning: #ffd60a;
+    --critical: #ff453a;
+}
+[data-scheme="light"] body {
+    color: #000;
+    --text: #000;
+    --muted: rgba(0, 0, 0, 0.55);
+    --track: rgba(0, 0, 0, 0.16);
+    --accent: #1fa846;
+    --warning: #e0a100;
+    --critical: #e5322d;
+}
+
+#meter { position: relative; width: 20px; height: 20px; }
+svg { display: block; transform: rotate(-90deg); }
+.track { fill: none; stroke: var(--track); stroke-width: 2.6; }
+.arc {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 2.6;
+    stroke-linecap: round;
+}
+#number {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 7.5px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+[data-state="warning"] .arc { stroke: var(--warning); }
+[data-state="critical"] .arc { stroke: var(--critical); }
+[data-state="unavailable"] .track { opacity: 0.4; }
+.charging #number { color: var(--accent); }

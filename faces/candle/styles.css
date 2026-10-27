@@ -1,0 +1,52 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { background: transparent; height: 22px; overflow: hidden; }
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    font-variant-numeric: tabular-nums;
+    --text: #fff;
+    --muted: rgba(255, 255, 255, 0.5);
+    --warning: #ffd60a;
+    --critical: #ff453a;
+}
+[data-scheme="light"] body {
+    --text: #000;
+    --muted: rgba(0, 0, 0, 0.45);
+    --warning: #c98800;
+    --critical: #e0281f;
+}
+
+#meter { display: flex; align-items: center; justify-content: center; gap: 3px; white-space: nowrap; }
+#meter svg { display: block; flex: none; overflow: visible; }
+
+.value { font-size: 12px; font-weight: 500; color: var(--text); letter-spacing: -0.01em; }
+.value[hidden] { display: none; }
+.tinted .value { color: var(--tint); }
+[data-state="warning"] .value { color: var(--warning); }
+[data-state="critical"] .value { color: var(--critical); }
+[data-state="unavailable"] .value { color: var(--muted); }
+
+/* Candle: cream wax on a little dish, a warm flame. Your color dyes the wax;
+   alert levels color the dish and the text. */
+body { --wax: #f4ead2; --wax-edge: #f4ead2; --dish: rgba(255, 255, 255, 0.7); --smoke: rgba(255, 255, 255, 0.45); }
+[data-scheme="light"] body { --wax: #fbf3df; --wax-edge: #8f7b55; --dish: rgba(0, 0, 0, 0.6); --smoke: rgba(0, 0, 0, 0.35); }
+html body.tinted { --wax: var(--tint); --wax-edge: var(--tint); }
+html body[data-state="warning"] { --dish: var(--warning); }
+html body[data-state="critical"] { --dish: var(--critical); }
+html body[data-state="unavailable"] { --wax: transparent; --wax-edge: var(--muted); --dish: var(--muted); }
+
+.wax { fill: var(--wax); stroke: var(--wax-edge); stroke-width: 1; }
+.drip { fill: var(--wax); stroke: var(--wax-edge); stroke-width: 1; }
+.dish { fill: var(--dish); }
+.wick { fill: var(--text); opacity: 0.8; }
+.flame { fill: #ff9f0a; }
+.core { fill: #ffe9a8; }
+.glow { fill: rgba(255, 159, 10, 0.25); }
+[data-scheme="light"] .flame { fill: #f08400; }
+[data-scheme="light"] .core { fill: #ffd34d; }
+[data-scheme="light"] .glow { fill: rgba(240, 132, 0, 0.18); }
+.smoke { fill: none; stroke: var(--smoke); stroke-width: 1; stroke-linecap: round; }

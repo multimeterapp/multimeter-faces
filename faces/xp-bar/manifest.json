@@ -1,0 +1,21 @@
+{
+    "id": "10000000-0000-0000-0000-000000000021",
+    "name": "XP Bar",
+    "description": "A pixel-art level and experience bar that levels up as your count grows.",
+    "version": "2.0.0",
+    "apiVersion": 2,
+    "sources": [
+        "push",
+        "url",
+        "file",
+        "script",
+        "progress"
+    ],
+    "defaultSource": "push",
+    "width": 60,
+    "minWidth": 36,
+    "maxWidth": 110,
+    "author": "Multimeter",
+    "supportsLightMode": true,
+    "supportsDarkMode": true
+}

@@ -1,0 +1,82 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { background: transparent; height: 22px; overflow: hidden; }
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    color: white;
+    --backlight-top: #d5dfbf;
+    --backlight-bottom: #b9c69d;
+    --ink: #1d2412;
+}
+[data-scheme="light"] body { color: black; }
+
+#meter { display: flex; align-items: center; gap: 3px; width: 100%; justify-content: center; }
+
+#label {
+    font-size: 7.5px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    opacity: 0.75;
+    white-space: nowrap;
+}
+
+/* The LCD glass: backlight gradient, inset bezel, a little shine. */
+#lcd {
+    position: relative;
+    flex: 1 1 auto;
+    min-width: 0;
+    height: 18px;
+    padding: 0 3px 0 4px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.5px;
+    background: linear-gradient(var(--backlight-top), var(--backlight-bottom));
+    box-shadow:
+        inset 0 1px 1.5px rgba(0, 0, 0, 0.45),
+        inset 0 -0.5px 0 rgba(255, 255, 255, 0.35),
+        0 0 0 1px rgba(0, 0, 0, 0.55);
+    overflow: hidden;
+}
+[data-scheme="light"] #lcd { box-shadow: inset 0 1px 1.5px rgba(0, 0, 0, 0.4), inset 0 -0.5px 0 rgba(255, 255, 255, 0.4), 0 0 0 1px rgba(0, 0, 0, 0.4); }
+#lcd::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; top: 0; height: 45%;
+    background: linear-gradient(rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0));
+    pointer-events: none;
+}
+
+#digits { display: block; flex: 0 0 auto; }
+.seg { fill: var(--ink); }
+.seg.off { opacity: 0.07; }
+
+#unit {
+    font-size: 6.5px;
+    font-weight: 800;
+    color: var(--ink);
+    align-self: flex-end;
+    margin-bottom: 3px;
+    white-space: nowrap;
+}
+
+#flag {
+    position: absolute;
+    left: 2px;
+    top: 1.5px;
+    font-size: 5.5px;
+    font-weight: 900;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+}
+
+/* Alerts: the digits blink when critical (unless motion is reduced). */
+.critical .seg:not(.off), .critical #unit { animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0.15; } }
+.reduce-motion .seg, .reduce-motion #unit { animation: none !important; }
+@media (prefers-reduced-motion: reduce) { .seg, #unit { animation: none !important; } }

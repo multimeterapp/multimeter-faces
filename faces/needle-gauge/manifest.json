@@ -1,0 +1,15 @@
+{
+    "id": "10000000-0000-0000-0000-000000000008",
+    "name": "Needle Gauge",
+    "description": "A little analog panel meter with a springy needle.",
+    "version": "2.0.0",
+    "apiVersion": 2,
+    "sources": ["any"],
+    "defaultSource": "cpu",
+    "width": 32,
+    "minWidth": 30,
+    "maxWidth": 40,
+    "author": "Multimeter",
+    "supportsLightMode": true,
+    "supportsDarkMode": true
+}

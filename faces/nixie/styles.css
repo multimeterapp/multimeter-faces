@@ -1,0 +1,42 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { background: transparent; height: 22px; overflow: hidden; }
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    --glow: #ff9a3c;
+    --core: #ffd9a8;
+}
+
+#nixie { display: block; }
+
+/* The wooden-dark plinth the tubes stand in. Dark on both menu bars so the
+   glow always has something to glow against. */
+.panel { fill: url(#panel); stroke: rgba(255, 255, 255, 0.22); stroke-width: 0.6; }
+[data-scheme="light"] .panel { stroke: rgba(0, 0, 0, 0.45); }
+
+.tube { fill: url(#glass); stroke: rgba(255, 214, 170, 0.16); stroke-width: 0.5; }
+.mesh { fill: url(#mesh); opacity: 0.16; }
+.shine { fill: none; stroke: rgba(255, 255, 255, 0.28); stroke-width: 0.6; stroke-linecap: round; }
+.socket { fill: #0b0705; }
+
+/* Cathodes: the unlit stack behind, then the glow and the hot core. */
+.ghost { fill: none; stroke: #8a5a36; stroke-width: 0.7; opacity: 0.22; stroke-linecap: round; stroke-linejoin: round; }
+.halo { fill: none; stroke: var(--glow); stroke-width: 2.6; opacity: 0.55; stroke-linecap: round; stroke-linejoin: round; filter: url(#bloom); }
+.wire { fill: none; stroke: var(--core); stroke-width: 1.05; stroke-linecap: round; stroke-linejoin: round; }
+.wire.dp { fill: var(--core); stroke: none; }
+.halo.dp { fill: var(--glow); stroke: none; }
+
+.unit-halo { fill: var(--glow); opacity: 0.7; filter: url(#bloom); font-weight: 700; }
+.unit { fill: var(--core); font-weight: 700; }
+
+.lamp-off { fill: #3a2418; }
+.lamp { fill: var(--lamp, var(--glow)); }
+.lamp-halo { fill: var(--lamp, var(--glow)); opacity: 0.6; filter: url(#bloom); }
+
+body.blink-off #content .lit { opacity: 0.18; }
+.unavailable .halo, .unavailable .wire, .unavailable .unit, .unavailable .unit-halo { opacity: 0; }
+.unavailable .ghost { opacity: 0.35; }

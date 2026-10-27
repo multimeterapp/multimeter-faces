@@ -1,0 +1,267 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 22px;
+    overflow: hidden;
+}
+
+#meter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.battery {
+    display: flex;
+    align-items: center;
+    height: 14px;
+}
+
+/* Main battery body - skeuomorphic 3D look */
+.battery-body {
+    width: 26px;
+    height: 12px;
+    background: linear-gradient(180deg,
+        #666 0%,
+        #555 10%,
+        #444 50%,
+        #333 90%,
+        #222 100%
+    );
+    border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+        0 1px 2px rgba(0, 0, 0, 0.3);
+    border: 1px solid #222;
+}
+
+/* Inner recessed area */
+.battery-inner {
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    right: 2px;
+    bottom: 2px;
+    background: linear-gradient(180deg,
+        #1a1a1a 0%,
+        #2a2a2a 50%,
+        #1a1a1a 100%
+    );
+    border-radius: 1.5px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Battery fill - green with glossy gradient */
+.battery-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 0%;
+    overflow: hidden;
+    border-radius: 1px;
+    transition: width 0.3s ease;
+}
+
+.fill-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+        #6be075 0%,
+        #4cd964 30%,
+        #34c759 50%,
+        #2db24d 70%,
+        #259e41 100%
+    );
+}
+
+/* Glossy shine on fill */
+.fill-shine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(180deg,
+        rgba(255, 255, 255, 0.4) 0%,
+        rgba(255, 255, 255, 0.1) 100%
+    );
+    border-radius: 1px 1px 0 0;
+}
+
+/* Low battery - red */
+.battery-fill.low .fill-gradient {
+    background: linear-gradient(180deg,
+        #ff6b6b 0%,
+        #ff4444 30%,
+        #ff3b30 50%,
+        #e62e25 70%,
+        #cc2920 100%
+    );
+}
+
+/* Medium battery - yellow */
+.battery-fill.medium .fill-gradient {
+    background: linear-gradient(180deg,
+        #ffe066 0%,
+        #ffd633 30%,
+        #ffcc00 50%,
+        #e6b800 70%,
+        #cca300 100%
+    );
+}
+
+/* Charging - slightly brighter green */
+.battery-fill.charging .fill-gradient {
+    background: linear-gradient(180deg,
+        #7fee8a 0%,
+        #5de970 30%,
+        #4cd964 50%,
+        #3bc955 70%,
+        #2fb848 100%
+    );
+}
+
+/* Gloss overlay on entire battery body */
+.battery-gloss {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(180deg,
+        rgba(255, 255, 255, 0.15) 0%,
+        rgba(255, 255, 255, 0.05) 100%
+    );
+    border-radius: 3px 3px 0 0;
+    pointer-events: none;
+}
+
+/* Lightning bolt for charging */
+.battery-bolt {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10px;
+    color: #fff;
+    opacity: 0;
+    z-index: 10;
+    text-shadow:
+        0 0 3px rgba(0, 0, 0, 0.8),
+        0 1px 1px rgba(0, 0, 0, 0.5);
+    filter: drop-shadow(0 0 2px rgba(255, 214, 10, 0.5));
+    transition: opacity 0.2s ease;
+}
+
+.battery-bolt.charging {
+    opacity: 1;
+    animation: bolt-pulse 1s ease-in-out infinite;
+}
+
+@keyframes bolt-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* Battery tip/nub */
+.battery-tip {
+    width: 3px;
+    height: 6px;
+    background: linear-gradient(180deg,
+        #555 0%,
+        #444 30%,
+        #333 70%,
+        #222 100%
+    );
+    border-radius: 0 2px 2px 0;
+    margin-left: 0;
+    position: relative;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.15),
+        1px 0 1px rgba(0, 0, 0, 0.2);
+}
+
+.tip-shine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(180deg,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    border-radius: 0 2px 0 0;
+}
+
+/* Light mode adjustments */
+body.light-mode .battery-body {
+    background: linear-gradient(180deg,
+        #888 0%,
+        #777 10%,
+        #666 50%,
+        #555 90%,
+        #444 100%
+    );
+    border-color: #333;
+}
+
+body.light-mode .battery-inner {
+    background: linear-gradient(180deg,
+        #2a2a2a 0%,
+        #3a3a3a 50%,
+        #2a2a2a 100%
+    );
+}
+
+body.light-mode .battery-tip {
+    background: linear-gradient(180deg,
+        #777 0%,
+        #666 30%,
+        #555 70%,
+        #444 100%
+    );
+}
+
+@media (prefers-color-scheme: light) {
+    .battery-body {
+        background: linear-gradient(180deg,
+            #888 0%,
+            #777 10%,
+            #666 50%,
+            #555 90%,
+            #444 100%
+        );
+        border-color: #333;
+    }
+
+    .battery-inner {
+        background: linear-gradient(180deg,
+            #2a2a2a 0%,
+            #3a3a3a 50%,
+            #2a2a2a 100%
+        );
+    }
+
+    .battery-tip {
+        background: linear-gradient(180deg,
+            #777 0%,
+            #666 30%,
+            #555 70%,
+            #444 100%
+        );
+    }
+}

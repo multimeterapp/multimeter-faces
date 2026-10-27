@@ -1,0 +1,98 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { background: transparent; height: 22px; overflow: hidden; }
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+    font-variant-numeric: tabular-nums;
+    --ink: #f3efe2;
+    --cw: 9px;
+    --fs: 13px;
+}
+
+/* The board's black housing: dark on both menu bars. */
+#board {
+    height: 20px;
+    width: 100%;
+    margin: 0 0.5px;
+    padding: 0 2px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+    background: linear-gradient(#1b1b1d, #0c0c0d);
+    box-shadow: 0 0 0 0.6px rgba(255, 255, 255, 0.24), inset 0 0.5px 0 rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+}
+[data-scheme="light"] #board { box-shadow: 0 0 0 0.6px rgba(0, 0, 0, 0.5), inset 0 0.5px 0 rgba(255, 255, 255, 0.08); }
+
+/* One flap card: lighter upper leaf, darker lower leaf, the split between. */
+.card {
+    position: relative;
+    flex: 0 0 auto;
+    width: var(--cw);
+    height: 17px;
+    border-radius: 1.5px;
+    background: linear-gradient(#36363a 0, #2c2c30 50%, #232326 50%, #1d1d20 100%);
+    box-shadow: inset 0 0.5px 0 rgba(255, 255, 255, 0.13), 0 0.5px 0.5px rgba(0, 0, 0, 0.6);
+    color: var(--ink);
+    font-size: var(--fs);
+    font-weight: 700;
+    line-height: 17px;
+    text-align: center;
+    overflow: hidden;
+}
+.card::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; top: 8px;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.85);
+    box-shadow: 0 0.5px 0 rgba(255, 255, 255, 0.07);
+}
+/* The character sits over the split so it stays readable at 1x; only the
+   gaps between strokes show the seam. */
+.card span { position: relative; z-index: 1; }
+/* Hinge pins on each side of the split. */
+.card::before {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; top: 7.5px;
+    height: 2px;
+    border-left: 0.75px solid #6b6b70;
+    border-right: 0.75px solid #6b6b70;
+}
+.card.letter { font-size: calc(var(--fs) * 0.74); font-weight: 800; }
+.card.blank { color: transparent; }
+
+/* One quick frame while a card falls: the top leaf is mid-flip. */
+.card.flip { background: linear-gradient(#141416 0, #1c1c1f 50%, #232326 50%, #1d1d20 100%); color: rgba(243, 239, 226, 0.55); }
+
+.sep {
+    flex: 0 0 auto;
+    color: var(--ink);
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 17px;
+    width: 3px;
+    text-align: center;
+    margin-top: -1px;
+}
+.caption {
+    flex: 0 0 auto;
+    color: var(--ink);
+    opacity: 0.8;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin-left: 1px;
+    align-self: flex-end;
+    margin-bottom: 4px;
+    white-space: nowrap;
+}
+
+.unavailable .card { color: rgba(243, 239, 226, 0.3); }

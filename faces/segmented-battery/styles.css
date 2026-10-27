@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 22px;
+    overflow: hidden;
+}
+
+#meter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#battery {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.battery-body {
+    width: 22px;
+    height: 10px;
+    border: 1.5px solid white;
+    border-radius: 2px;
+    padding: 1px;
+    display: flex;
+    align-items: center;
+}
+
+.segments {
+    display: flex;
+    gap: 1px;
+    width: 100%;
+    height: 100%;
+}
+
+.segment {
+    flex: 1;
+    height: 100%;
+    background: transparent;
+    border-radius: 0.5px;
+    transition: background-color 0.2s ease;
+}
+
+.segment.filled {
+    background: #34C759;
+}
+
+.segment.filled.low {
+    background: #FF3B30;
+}
+
+.segment.filled.medium {
+    background: #FFCC00;
+}
+
+.segment.filled.charging {
+    background: #34C759;
+}
+
+.battery-tip {
+    width: 2px;
+    height: 4px;
+    background: white;
+    border-radius: 0 1px 1px 0;
+    margin-left: -0.5px;
+}
+
+/* Charging animation */
+#battery.charging .segment.filled {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+#battery.charging .segment.filled:nth-child(1) { animation-delay: 0s; }
+#battery.charging .segment.filled:nth-child(2) { animation-delay: 0.1s; }
+#battery.charging .segment.filled:nth-child(3) { animation-delay: 0.2s; }
+#battery.charging .segment.filled:nth-child(4) { animation-delay: 0.3s; }
+#battery.charging .segment.filled:nth-child(5) { animation-delay: 0.4s; }
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* Light mode */
+@media (prefers-color-scheme: light) {
+    .battery-body {
+        border-color: black;
+    }
+    .battery-tip {
+        background: black;
+    }
+    .segment.filled {
+        background: #34C759;
+    }
+    .segment.filled.low {
+        background: #FF3B30;
+    }
+    .segment.filled.medium {
+        background: #FFCC00;
+    }
+    .segment.filled.charging {
+        background: #34C759;
+    }
+}
+
+body.light-mode .battery-body {
+    border-color: black;
+}
+body.light-mode .battery-tip {
+    background: black;
+}
+body.light-mode .segment.filled {
+    background: #34C759;
+}
+body.light-mode .segment.filled.low {
+    background: #FF3B30;
+}
+body.light-mode .segment.filled.medium {
+    background: #FFCC00;
+}
+body.light-mode .segment.filled.charging {
+    background: #34C759;
+}

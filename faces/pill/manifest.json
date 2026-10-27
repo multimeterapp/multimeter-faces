@@ -1,0 +1,15 @@
+{
+    "id": "10000000-0000-0000-0000-00000000000E",
+    "name": "Pill",
+    "description": "A capsule that fills like a Control Center slider, with the value inside.",
+    "version": "2.0.0",
+    "apiVersion": 2,
+    "sources": ["any"],
+    "defaultSource": "battery",
+    "width": 46,
+    "minWidth": 34,
+    "maxWidth": 84,
+    "author": "Multimeter",
+    "supportsLightMode": true,
+    "supportsDarkMode": true
+}

@@ -1,0 +1,14 @@
+{
+  "name": "History Graph",
+  "description": "The last minute as a little line graph.",
+  "version": "1.0.0",
+  "author": "Your Name",
+  "apiVersion": 2,
+  "sources": ["any"],
+  "defaultSource": "network",
+  "width": 44,
+  "minWidth": 30,
+  "maxWidth": 80,
+  "supportsLightMode": true,
+  "supportsDarkMode": true
+}

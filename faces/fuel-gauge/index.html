@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <svg id="gauge" viewBox="0 0 36 22" width="36" height="22" aria-hidden="true">
+        <defs>
+            <linearGradient id="dash" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#26262a"/>
+                <stop offset="1" stop-color="#0b0b0c"/>
+            </linearGradient>
+            <radialGradient id="hub" cx="0.4" cy="0.35" r="0.7">
+                <stop offset="0" stop-color="#6a6a70"/>
+                <stop offset="1" stop-color="#1a1a1c"/>
+            </radialGradient>
+            <filter id="lampGlow" x="-60%" y="-60%" width="220%" height="220%">
+                <feGaussianBlur stdDeviation="0.8"/>
+            </filter>
+            <clipPath id="clip"><rect x="1" y="1.5" width="34" height="19" rx="3.5"/></clipPath>
+        </defs>
+        <rect class="bezel" x="0.5" y="1" width="35" height="20" rx="4"/>
+        <g clip-path="url(#clip)">
+            <path id="reserve" class="reserve" d=""/>
+            <g id="ticks"></g>
+            <path class="letter" d="M4.6 13.6 H2.6 V17.6 H4.6 M2.6 15.6 H4.2"/>
+            <path class="letter" d="M33.4 13.6 H31.4 V17.6 M31.4 15.6 H33"/>
+            <g id="pump" transform="translate(15.4 9.4)">
+                <g id="pumpGlow" class="pump-glow" filter="url(#lampGlow)">
+                    <rect x="0" y="0.6" width="3.6" height="4.8" rx="0.5"/>
+                </g>
+                <path class="pump" fill-rule="evenodd" d="M0.5 0.4 H3.1 Q3.6 0.4 3.6 0.9 V5.4 H0 V0.9 Q0 0.4 0.5 0.4 Z M0.7 1.1 V2.4 H2.9 V1.1 Z"/>
+                <path class="pump-hose" d="M3.6 1.6 H4.3 Q4.9 1.6 4.9 2.2 V4.5 Q4.9 5 5.3 5 Q5.7 5 5.7 4.5 V1.7 L5 1"/>
+            </g>
+            <g id="needle">
+                <path class="needle" d="M17.4 19.5 L17.82 7.2 Q18 6.8 18.18 7.2 L18.6 19.5 Z"/>
+            </g>
+            <circle cx="18" cy="19.5" r="2.3" fill="url(#hub)" class="hub"/>
+            <rect x="1" y="1.5" width="34" height="6" rx="3.5" class="glass"/>
+        </g>
+    </svg>
+    <script src="meter.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+    background: transparent;
+    height: 22px;
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#gauge { display: block; overflow: visible; }
+
+/* The meter body: a dark bezel on a dark menu bar, a soft one on a light bar. */
+.bezel { fill: #2b2b2e; stroke: rgba(255, 255, 255, 0.28); stroke-width: 0.6; }
+[data-scheme="light"] .bezel { fill: #3a3a3d; stroke: rgba(0, 0, 0, 0.35); }
+
+.track { fill: none; stroke: rgba(60, 45, 20, 0.16); stroke-width: 2.2; }
+.fill-arc { fill: none; stroke: var(--accent, #34c759); stroke-width: 2.2; opacity: 0.9; }
+.zone { fill: none; stroke-width: 2.2; }
+.zone.warn { stroke: #f5b400; }
+.zone.crit { stroke: #e5322d; }
+
+.tick { stroke: #3d3326; stroke-width: 0.55; stroke-linecap: round; }
+.tick.major { stroke-width: 0.8; }
+
+.needle-line { stroke: #1c1c1e; stroke-width: 1.05; stroke-linecap: round; }
+.critical .needle-line { stroke: #d11f1a; }
+#needle { transform-origin: 15px 17.2px; }
+.pivot { fill: #1c1c1e; stroke: rgba(255, 255, 255, 0.45); stroke-width: 0.4; }
+
+.bolt { fill: #1f9d3a; opacity: 0; transition: opacity 0.3s; }
+.charging .bolt { opacity: 1; }
+
+.unavailable #needle, .unavailable .fill-arc { opacity: 0.25; }
+

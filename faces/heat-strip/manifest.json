@@ -1,0 +1,15 @@
+{
+    "id": "10000000-0000-0000-0000-000000000016",
+    "name": "Heat Strip",
+    "description": "Recent readings as a row of cells that get brighter as the value climbs.",
+    "version": "2.0.0",
+    "apiVersion": 2,
+    "sources": ["any"],
+    "defaultSource": "cpu",
+    "width": 54,
+    "minWidth": 24,
+    "maxWidth": 120,
+    "author": "Multimeter",
+    "supportsLightMode": true,
+    "supportsDarkMode": true
+}

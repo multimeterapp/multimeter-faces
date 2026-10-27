@@ -1,0 +1,17 @@
+{
+    "id": "10000000-0000-0000-0000-000000000006",
+    "name": "Book Power",
+    "description": "Five dots that light up as the battery fills.",
+    "version": "2.0.0",
+    "apiVersion": 2,
+    "sources": [
+        "any"
+    ],
+    "defaultSource": "battery",
+    "width": 50,
+    "minWidth": 40,
+    "maxWidth": 70,
+    "author": "Multimeter",
+    "supportsLightMode": true,
+    "supportsDarkMode": true
+}

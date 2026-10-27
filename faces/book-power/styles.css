@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 22px;
+    overflow: hidden;
+}
+
+#meter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dots {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+/* 5 dots must fit the 50px status item (they used to be 74px wide and the
+   outer two were clipped off). */
+.dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: rgba(128, 128, 128, 0.4);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dot.filled {
+    background: #48bb78;
+    box-shadow:
+        0 0 4px rgba(72, 187, 120, 0.8),
+        0 0 8px rgba(72, 187, 120, 0.4);
+}
+
+.dot.filled.low {
+    background: #fc8181;
+    box-shadow:
+        0 0 4px rgba(252, 129, 129, 0.8),
+        0 0 8px rgba(252, 129, 129, 0.4);
+}
+
+.dot.filled.medium {
+    background: #f6e05e;
+    box-shadow:
+        0 0 4px rgba(246, 224, 94, 0.8),
+        0 0 8px rgba(246, 224, 94, 0.4);
+}
+
+/* Charging animation - pulsing on last filled dot */
+.dot.charging {
+    animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.1);
+    }
+}
+
+/* Light mode - slightly different empty dot color */
+body.light-mode .dot {
+    background: rgba(128, 128, 128, 0.3);
+}
+
+@media (prefers-color-scheme: light) {
+    .dot {
+        background: rgba(128, 128, 128, 0.3);
+    }
+}

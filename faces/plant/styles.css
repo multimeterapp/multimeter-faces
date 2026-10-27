@@ -1,0 +1,48 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { background: transparent; height: 22px; overflow: hidden; }
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    font-variant-numeric: tabular-nums;
+    --text: #fff;
+    --muted: rgba(255, 255, 255, 0.5);
+    --warning: #ffd60a;
+    --critical: #ff453a;
+}
+[data-scheme="light"] body {
+    --text: #000;
+    --muted: rgba(0, 0, 0, 0.45);
+    --warning: #c98800;
+    --critical: #e0281f;
+}
+
+#meter { display: flex; align-items: center; justify-content: center; gap: 3px; white-space: nowrap; }
+#meter svg { display: block; flex: none; overflow: visible; }
+
+.value { font-size: 12px; font-weight: 500; color: var(--text); letter-spacing: -0.01em; }
+.value[hidden] { display: none; }
+.tinted .value { color: var(--tint); }
+[data-state="warning"] .value { color: var(--warning); }
+[data-state="critical"] .value { color: var(--critical); }
+[data-state="unavailable"] .value { color: var(--muted); }
+
+/* Plant: a terracotta pot; the leaves go from green to olive to brown and
+   droop as the value falls. Your color paints the pot. */
+body { --pot: #d0693e; --rim: #e47e52; --petal: #ff8fb8; --heart: #ffd60a; --drop: #64d2ff; }
+[data-scheme="light"] body { --pot: #b9532a; --rim: #cc6638; --petal: #f2588f; --heart: #e8ac00; --drop: #0a84ff; }
+html body.tinted { --pot: var(--tint); --rim: var(--tint); }
+html body[data-state="unavailable"] { --pot: var(--muted); --rim: var(--muted); }
+
+.pot { fill: var(--pot); }
+.rim { fill: var(--rim); }
+.stem { fill: none; stroke: var(--leaf, #34c759); stroke-width: 1.5; stroke-linecap: round; }
+.leaf { fill: var(--leaf, #34c759); }
+.flower .petal { fill: var(--petal); }
+.flower .heart { fill: var(--heart); }
+.water { fill: var(--drop); display: none; }
+.charging .water { display: inline; }
+[data-state="unavailable"] .leaf { fill: none; stroke: var(--muted); stroke-width: 1; }

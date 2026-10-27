@@ -1,0 +1,69 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { background: transparent; height: 22px; overflow: hidden; }
+
+/* Flat and colorful: the face's own color (or the tint), yellow and red at alert levels. */
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    font-variant-numeric: tabular-nums;
+    -webkit-font-smoothing: antialiased;
+    color: #fff;
+    --text: #fff;
+    --muted: rgba(255, 255, 255, 0.6);
+    --track: rgba(255, 255, 255, 0.2);
+    --charge: #30d158;
+    --warning: #ffd60a;
+    --critical: #ff453a;
+}
+[data-scheme="light"] body {
+    color: #000;
+    --text: #000;
+    --muted: rgba(0, 0, 0, 0.5);
+    --track: rgba(0, 0, 0, 0.13);
+    --charge: #1fa846;
+    --warning: #e0a100;
+    --critical: #e5322d;
+}
+#value { flex: 0 0 auto; white-space: nowrap; color: var(--text); font-size: 10.5px; line-height: 12px; }
+#value .num { font-size: 10.5px; font-weight: 600; letter-spacing: -0.01em; }
+#value .unit { font-size: 7.5px; font-weight: 700; color: var(--muted); margin-left: 1px; }
+#value .bolt { font-size: 8px; color: var(--charge); margin-left: 1px; }
+[data-state="warning"] #value .num { color: var(--warning); }
+[data-state="critical"] #value .num { color: var(--critical); }
+[data-state="unavailable"] #value { color: var(--muted); }
+
+/* Arc Gauge: a flat 240 degree arc, open at the bottom, number in the middle. */
+body { --accent: #0a84ff; }
+[data-scheme="light"] body { --accent: #007aff; }
+.tinted { --accent: var(--tint) !important; }
+#meter { position: relative; width: 26px; height: 22px; }
+#gauge { display: block; }
+#track, #arc, .zone { fill: none; stroke-width: 2.6; stroke-linecap: round; }
+#track { stroke: var(--track); }
+.zone { stroke-linecap: butt; opacity: 0.4; }
+#warnZone { stroke: var(--warning); }
+#critZone { stroke: var(--critical); }
+#arc { stroke: var(--accent); }
+[data-state="warning"] #arc { stroke: var(--warning); }
+[data-state="critical"] #arc { stroke: var(--critical); }
+.charging #arc { stroke: var(--charge); }
+[data-state="unavailable"] #gauge { opacity: 0.45; }
+#number {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 7px;
+    height: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 10px;
+    color: var(--text);
+}
+[data-state="unavailable"] #number { color: var(--muted); }

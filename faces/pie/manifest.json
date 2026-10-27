@@ -1,0 +1,15 @@
+{
+    "id": "10000000-0000-0000-0000-000000000010",
+    "name": "Pie",
+    "description": "A small pie that fills in, readable at a glance without a number.",
+    "version": "2.0.0",
+    "apiVersion": 2,
+    "sources": ["any"],
+    "defaultSource": "cpu",
+    "width": 20,
+    "minWidth": 18,
+    "maxWidth": 24,
+    "author": "Multimeter",
+    "supportsLightMode": true,
+    "supportsDarkMode": true
+}

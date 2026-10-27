@@ -1,0 +1,34 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* The meter is 22 points tall and as wide as manifest.json says. */
+body {
+    font: 600 11px/1 -apple-system, BlinkMacSystemFont, sans-serif;
+    font-variant-numeric: tabular-nums;
+    color: white;                 /* dark menu bar */
+    background: transparent;
+    height: 22px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    --accent: #30d158;            /* replaced by the meter's color, if one is set */
+}
+
+/* Light menu bar: the system setting, or the preview's light mode. */
+#track { background: rgba(255, 255, 255, 0.25); }
+@media (prefers-color-scheme: light) { body { color: black; } #track { background: rgba(0, 0, 0, 0.18); } }
+body.light-mode { color: black; }
+body.light-mode #track { background: rgba(0, 0, 0, 0.18); }
+body.dark-mode { color: white; }
+body.dark-mode #track { background: rgba(255, 255, 255, 0.25); }
+
+#meter { display: flex; align-items: center; gap: 4px; }
+#label { font-size: 8px; letter-spacing: 0.04em; opacity: 0.7; }
+#track { width: 18px; height: 6px; border-radius: 3px; position: relative; overflow: hidden; }
+#fill { position: absolute; inset: 0 auto 0 0; width: 0; background: var(--accent); border-radius: 3px; transition: width 0.4s ease; }
+
+/* state is "normal", "warning" or "critical" (from the meter's alert levels). */
+body.warning { --accent: #ffd60a; }
+body.critical { --accent: #ff453a; }
+
+@media (prefers-reduced-motion: reduce) { #fill { transition: none; } }

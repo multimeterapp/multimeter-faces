@@ -1,0 +1,15 @@
+{
+    "id": "10000000-0000-0000-0000-00000000001C",
+    "name": "Moon Phase",
+    "description": "A moon that waxes from new to full as the value climbs.",
+    "version": "2.0.0",
+    "apiVersion": 2,
+    "sources": ["any"],
+    "defaultSource": "progress",
+    "width": 52,
+    "minWidth": 20,
+    "maxWidth": 72,
+    "author": "Multimeter",
+    "supportsLightMode": true,
+    "supportsDarkMode": true
+}

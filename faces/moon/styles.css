@@ -1,0 +1,39 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { background: transparent; height: 22px; overflow: hidden; }
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    font-variant-numeric: tabular-nums;
+    color: #fff;
+    --lit-hi: #fffaea;
+    --lit-lo: #e6d9b4;
+    --dark-hi: #3a3e47;
+    --dark-lo: #23262c;
+    --rim: rgba(255, 255, 255, 0.3);
+    --muted: rgba(255, 255, 255, 0.62);
+}
+[data-scheme="light"] body {
+    color: #000;
+    --dark-hi: #5b606b;
+    --dark-lo: #3c4048;
+    --rim: rgba(0, 0, 0, 0.42);
+    --muted: rgba(0, 0, 0, 0.55);
+}
+
+#meter { display: flex; align-items: center; justify-content: center; gap: 2px; width: 100%; }
+#moon { display: block; flex: 0 0 auto; }
+
+/* Seas and craters: darker on the lit side, faint earthshine on the dark side. */
+.maria { fill: #8a7a58; opacity: 0.2; }
+.rim { fill: none; stroke: var(--rim); stroke-width: 0.6; }
+.bolt { fill: #34c759; stroke: #1c1c1e; stroke-width: 0.6; stroke-linejoin: round; display: none; }
+.charging .bolt { display: block; }
+
+#value { font-size: 11px; font-weight: 600; white-space: nowrap; letter-spacing: -0.01em; }
+#value .unit { font-size: 0.73em; font-weight: 700; color: var(--muted); margin-left: 0.5px; }
+
+.unavailable #moon { opacity: 0.45; }

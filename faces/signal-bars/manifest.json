@@ -1,0 +1,15 @@
+{
+    "id": "10000000-0000-0000-0000-000000000012",
+    "name": "Signal Bars",
+    "description": "Four bars that rise with the value, like Wi-Fi strength.",
+    "version": "2.0.0",
+    "apiVersion": 2,
+    "sources": ["any"],
+    "defaultSource": "battery",
+    "width": 20,
+    "minWidth": 18,
+    "maxWidth": 60,
+    "author": "Multimeter",
+    "supportsLightMode": true,
+    "supportsDarkMode": true
+}

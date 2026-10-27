@@ -1,0 +1,76 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { background: transparent; height: 22px; overflow: hidden; }
+
+/* System look: label colors, monochrome until a tint or an alert colors it. */
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    font-variant-numeric: tabular-nums;
+    -webkit-font-smoothing: antialiased;
+    color: #fff;
+    --text: #fff;
+    --muted: rgba(255, 255, 255, 0.6);
+    --track: rgba(255, 255, 255, 0.24);
+    --accent: var(--text);
+    --charge: #30d158;
+    --warning: #ffd60a;
+    --critical: #ff453a;
+}
+[data-scheme="light"] body {
+    color: #000;
+    --text: #000;
+    --muted: rgba(0, 0, 0, 0.5);
+    --track: rgba(0, 0, 0, 0.16);
+    --charge: #1fa846;
+    --warning: #d99a00;
+    --critical: #e5322d;
+}
+
+/* Pill: a Control Center style capsule. The value is drawn twice, once over
+   the track and once (clipped to the fill) over the fill, so it reads on both. */
+#pill {
+    position: relative;
+    width: calc(100% - 2px);
+    height: 15px;
+    border-radius: 7.5px;
+    background: var(--track);
+    overflow: hidden;
+    --fill: rgba(255, 255, 255, 0.92);
+    --on-fill: #000;
+}
+[data-scheme="light"] #pill { --fill: rgba(0, 0, 0, 0.78); --on-fill: #fff; }
+.tinted #pill { --fill: var(--accent); }
+[data-state="warning"] #pill { --fill: var(--warning); }
+[data-state="critical"] #pill { --fill: var(--critical); }
+.charging #pill { --fill: var(--charge); }
+#fill {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 0;
+    overflow: hidden;
+    background: var(--fill);
+}
+.text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 15px;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    color: var(--text);
+}
+#over { color: var(--on-fill); }
+[data-state="unavailable"] #pill { background: transparent; box-shadow: inset 0 0 0 1px var(--track); }
+[data-state="unavailable"] .text { color: var(--muted); }
+/* Fill edge inside the text: one copy, above the fill (colors set in meter.js). */
+.cut #over { visibility: hidden; }
+.cut #under { z-index: 1; }

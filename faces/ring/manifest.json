@@ -1,0 +1,15 @@
+{
+    "id": "10000000-0000-0000-0000-00000000000C",
+    "name": "Ring",
+    "description": "A ring that closes as the value climbs, with the number inside.",
+    "version": "2.0.0",
+    "apiVersion": 2,
+    "sources": ["any"],
+    "defaultSource": "cpu",
+    "width": 22,
+    "minWidth": 20,
+    "maxWidth": 26,
+    "author": "Multimeter",
+    "supportsLightMode": true,
+    "supportsDarkMode": true
+}

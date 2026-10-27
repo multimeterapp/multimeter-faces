@@ -1,0 +1,15 @@
+{
+    "id": "10000000-0000-0000-0000-000000000013",
+    "name": "Arc Gauge",
+    "description": "A flat open gauge that sweeps around the number.",
+    "version": "2.0.0",
+    "apiVersion": 2,
+    "sources": ["any"],
+    "defaultSource": "cpu",
+    "width": 26,
+    "minWidth": 24,
+    "maxWidth": 30,
+    "author": "Multimeter",
+    "supportsLightMode": true,
+    "supportsDarkMode": true
+}

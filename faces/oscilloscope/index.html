@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <svg id="scope" height="22" aria-hidden="true">
+        <defs>
+            <radialGradient id="screen" cx="0.5" cy="0.5" r="0.75">
+                <stop offset="0" stop-color="#0d2a1a"/>
+                <stop offset="1" stop-color="#03100a"/>
+            </radialGradient>
+            <linearGradient id="persist" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="60" y2="0">
+                <stop offset="0" style="stop-color: var(--phosphor); stop-opacity: 0.35"/>
+                <stop offset="0.7" style="stop-color: var(--phosphor); stop-opacity: 0.85"/>
+                <stop offset="1" style="stop-color: var(--phosphor); stop-opacity: 1"/>
+            </linearGradient>
+            <filter id="glow" x="-20%" y="-60%" width="140%" height="220%">
+                <feGaussianBlur stdDeviation="0.9"/>
+            </filter>
+            <clipPath id="clip"><rect id="clipRect" x="1.2" y="1.7" height="18.6" rx="2.4"/></clipPath>
+        </defs>
+        <rect id="bezel" class="bezel" x="0.5" y="1" height="20" rx="3"/>
+        <rect id="glass" class="screen" x="1.2" y="1.7" height="18.6" rx="2.4"/>
+        <text id="readout" class="readout" y="13.6"></text>
+        <g clip-path="url(#clip)">
+            <g id="grid"></g>
+            <path id="halo" class="halo"/>
+            <path id="trace" class="trace"/>
+            <circle id="beamHalo" class="beam-halo" r="1.8"/>
+            <circle id="beam" class="beam" r="0.8"/>
+            <rect id="shine" class="shine" x="1.2" y="1.7" height="5" rx="2.4"/>
+        </g>
+    </svg>
+    <script src="meter.js"></script>
+</body>
+</html>

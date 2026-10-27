@@ -1,0 +1,17 @@
+{
+    "id": "10000000-0000-0000-0000-000000000020",
+    "name": "Traffic Light",
+    "description": "Three lamps: green while all is well, yellow at the warning level, red when it's critical.",
+    "version": "2.0.0",
+    "apiVersion": 2,
+    "sources": [
+        "any"
+    ],
+    "defaultSource": "cpu",
+    "width": 36,
+    "minWidth": 34,
+    "maxWidth": 76,
+    "author": "Multimeter",
+    "supportsLightMode": true,
+    "supportsDarkMode": true
+}

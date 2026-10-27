@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 22px;
+    overflow: hidden;
+    color: #4a5568;
+}
+
+#meter {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.time-display {
+    display: flex;
+    align-items: baseline;
+    gap: 3px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+#time {
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.3px;
+}
+
+#suffix {
+    font-size: 11px;
+    opacity: 0.8;
+}
+
+/* Pill-shaped progress bar */
+.progress-bar {
+    width: 24px;
+    height: 8px;
+    background: rgba(74, 85, 104, 0.25);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: #4a5568;
+    border-radius: 4px;
+    transition: width 0.5s ease, background-color 0.3s ease;
+}
+
+.progress-fill.charging {
+    background: #48bb78;
+}
+
+/* Lightning bolt - on the right */
+.bolt {
+    font-size: 12px;
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+    transition: opacity 0.2s ease, width 0.2s ease;
+    color: #4a5568;
+}
+
+.bolt.visible {
+    opacity: 1;
+    width: auto;
+}
+
+/* Dark mode */
+body.dark-mode {
+    color: white;
+}
+
+body.dark-mode .progress-bar {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+body.dark-mode .progress-fill {
+    background: white;
+}
+
+body.dark-mode .progress-fill.charging {
+    background: #48bb78;
+}
+
+body.dark-mode .bolt {
+    color: white;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        color: white;
+    }
+
+    .progress-bar {
+        background: rgba(255, 255, 255, 0.25);
+    }
+
+    .progress-fill {
+        background: white;
+    }
+
+    .progress-fill.charging {
+        background: #48bb78;
+    }
+
+    .bolt {
+        color: white;
+    }
+}
+
+/* Alert levels (meter API v2 state) */
+#fill.low { background: #ff453a; }
+#fill.medium { background: #ffd60a; }

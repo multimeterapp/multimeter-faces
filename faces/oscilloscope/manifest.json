@@ -1,0 +1,15 @@
+{
+    "id": "10000000-0000-0000-0000-00000000001B",
+    "name": "Oscilloscope",
+    "description": "A green phosphor trace of the last couple of minutes on a lab scope screen.",
+    "version": "2.0.0",
+    "apiVersion": 2,
+    "sources": ["any"],
+    "defaultSource": "cpu",
+    "width": 64,
+    "minWidth": 34,
+    "maxWidth": 110,
+    "author": "Multimeter",
+    "supportsLightMode": true,
+    "supportsDarkMode": true
+}

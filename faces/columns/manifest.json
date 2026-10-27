@@ -1,0 +1,15 @@
+{
+    "id": "10000000-0000-0000-0000-000000000014",
+    "name": "Columns",
+    "description": "A small bar chart of the last minute, one column per reading.",
+    "version": "2.0.0",
+    "apiVersion": 2,
+    "sources": ["any"],
+    "defaultSource": "cpu",
+    "width": 56,
+    "minWidth": 24,
+    "maxWidth": 110,
+    "author": "Multimeter",
+    "supportsLightMode": true,
+    "supportsDarkMode": true
+}

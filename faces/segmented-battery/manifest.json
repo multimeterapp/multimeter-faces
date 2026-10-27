@@ -1,0 +1,18 @@
+{
+    "id": "10000000-0000-0000-0000-000000000007",
+    "name": "Segmented Battery",
+    "description": "Battery outline with five segments.",
+    "version": "2.0.0",
+    "apiVersion": 2,
+    "sources": [
+        "battery",
+        "bluetooth"
+    ],
+    "defaultSource": "battery",
+    "width": 32,
+    "minWidth": 28,
+    "maxWidth": 48,
+    "author": "Multimeter",
+    "supportsLightMode": true,
+    "supportsDarkMode": true
+}

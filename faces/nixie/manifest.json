@@ -1,0 +1,15 @@
+{
+    "id": "10000000-0000-0000-0000-000000000018",
+    "name": "Nixie Tubes",
+    "description": "Warm orange numbers glowing in little glass tubes.",
+    "version": "2.0.0",
+    "apiVersion": 2,
+    "sources": ["any"],
+    "defaultSource": "timer",
+    "width": 48,
+    "minWidth": 30,
+    "maxWidth": 100,
+    "author": "Multimeter",
+    "supportsLightMode": true,
+    "supportsDarkMode": true
+}

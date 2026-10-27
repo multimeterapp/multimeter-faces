@@ -1,0 +1,35 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { background: transparent; height: 22px; overflow: hidden; }
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    font-variant-numeric: tabular-nums;
+    color: #fff;
+    --text: #fff;
+    --muted: rgba(255, 255, 255, 0.62);
+    --track: rgba(255, 255, 255, 0.22);
+    --accent: #30d158;
+    --warning: #ffd60a;
+    --critical: #ff453a;
+}
+[data-scheme="light"] body {
+    color: #000;
+    --text: #000;
+    --muted: rgba(0, 0, 0, 0.55);
+    --track: rgba(0, 0, 0, 0.16);
+    --accent: #1fa846;
+    --warning: #e0a100;
+    --critical: #e5322d;
+}
+
+#meter { display: flex; align-items: baseline; justify-content: center; gap: 3px; width: 100%; white-space: nowrap; overflow: hidden; }
+#label { font-size: 8px; font-weight: 700; letter-spacing: 0.05em; color: var(--muted); }
+#value { font-size: 12px; font-weight: 500; color: var(--text); }
+.tinted #value { color: var(--accent); }
+[data-state="warning"] #value { color: var(--warning); }
+[data-state="critical"] #value { color: var(--critical); }
+[data-state="unavailable"] #value { color: var(--muted); }

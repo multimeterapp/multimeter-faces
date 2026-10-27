@@ -1,0 +1,17 @@
+{
+    "id": "10000000-0000-0000-0000-000000000004",
+    "name": "Hearts",
+    "description": "A row of hearts, like a game health bar.",
+    "version": "2.0.0",
+    "apiVersion": 2,
+    "sources": [
+        "any"
+    ],
+    "defaultSource": "battery",
+    "width": 70,
+    "minWidth": 50,
+    "maxWidth": 100,
+    "author": "Multimeter",
+    "supportsLightMode": true,
+    "supportsDarkMode": true
+}

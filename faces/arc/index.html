@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="meter">
+        <svg id="gauge" viewBox="0 0 26 22" width="26" height="22" aria-hidden="true">
+            <path id="track"/>
+            <path id="warnZone" class="zone"/>
+            <path id="critZone" class="zone"/>
+            <path id="arc"/>
+        </svg>
+        <span id="number"></span>
+    </div>
+    <script src="meter.js"></script>
+</body>
+</html>

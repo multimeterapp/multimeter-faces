@@ -1,0 +1,17 @@
+{
+    "id": "10000000-0000-0000-0000-000000000022",
+    "name": "Plant",
+    "description": "A potted plant that blooms while things are good and wilts as they get worse.",
+    "version": "2.0.0",
+    "apiVersion": 2,
+    "sources": [
+        "any"
+    ],
+    "defaultSource": "battery",
+    "width": 50,
+    "minWidth": 20,
+    "maxWidth": 64,
+    "author": "Multimeter",
+    "supportsLightMode": true,
+    "supportsDarkMode": true
+}

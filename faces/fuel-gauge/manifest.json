@@ -1,0 +1,15 @@
+{
+    "id": "10000000-0000-0000-0000-00000000001A",
+    "name": "Fuel Gauge",
+    "description": "A car dash gauge from E to F that shows how much is left.",
+    "version": "2.0.0",
+    "apiVersion": 2,
+    "sources": ["battery", "bluetooth", "disk", "memory", "progress"],
+    "defaultSource": "battery",
+    "width": 36,
+    "minWidth": 32,
+    "maxWidth": 44,
+    "author": "Multimeter",
+    "supportsLightMode": true,
+    "supportsDarkMode": true
+}

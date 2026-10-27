@@ -1,0 +1,233 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 22px;
+    overflow: hidden;
+}
+
+#meter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sword {
+    display: flex;
+    align-items: center;
+    height: 12px;
+}
+
+/* Hilt (handle) - sleek metallic design */
+.hilt {
+    display: flex;
+    align-items: center;
+    height: 10px;
+    z-index: 2;
+}
+
+.hilt-body {
+    width: 10px;
+    height: 10px;
+    background: linear-gradient(180deg,
+        #aaa 0%,
+        #888 20%,
+        #666 50%,
+        #888 80%,
+        #aaa 100%
+    );
+    border-radius: 2px 1px 1px 2px;
+    border: 0.5px solid #444;
+}
+
+.hilt-accent {
+    width: 4px;
+    height: 8px;
+    background: linear-gradient(180deg,
+        #777 0%,
+        #555 50%,
+        #777 100%
+    );
+    border-top: 0.5px solid #888;
+    border-bottom: 0.5px solid #888;
+}
+
+.emitter {
+    width: 3px;
+    height: 6px;
+    background: linear-gradient(180deg,
+        #999 0%,
+        #666 50%,
+        #999 100%
+    );
+    border-radius: 0 1px 1px 0;
+}
+
+/* Blade container */
+.blade-container {
+    width: 38px;
+    height: 8px;
+    position: relative;
+    overflow: visible;
+}
+
+.blade {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 6px;
+    width: 0%;
+    transition: width 0.3s ease;
+    border-radius: 0 3px 3px 0;
+    overflow: visible;
+}
+
+/* White core of the blade */
+.blade-core {
+    position: absolute;
+    top: 1px;
+    left: 0;
+    right: 0;
+    bottom: 1px;
+    background: linear-gradient(90deg,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 1) 80%,
+        rgba(255, 255, 255, 0.9) 100%
+    );
+    border-radius: 0 2px 2px 0;
+}
+
+/* Green glow around the blade */
+.blade-glow {
+    position: absolute;
+    inset: -1px;
+    right: -2px;
+    background: linear-gradient(90deg,
+        rgba(52, 199, 89, 1) 0%,
+        rgba(52, 199, 89, 0.9) 40%,
+        rgba(100, 220, 130, 0.7) 80%,
+        rgba(150, 255, 180, 0.5) 100%
+    );
+    border-radius: 0 4px 4px 0;
+    filter: blur(1px);
+    z-index: -1;
+}
+
+/* Additional outer glow */
+.blade::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    right: -4px;
+    background: rgba(52, 199, 89, 0.3);
+    border-radius: 0 6px 6px 0;
+    filter: blur(3px);
+    z-index: -2;
+}
+
+/* Low battery - red blade */
+.blade.low .blade-glow {
+    background: linear-gradient(90deg,
+        rgba(255, 59, 48, 1) 0%,
+        rgba(255, 59, 48, 0.9) 40%,
+        rgba(255, 100, 100, 0.7) 80%,
+        rgba(255, 150, 150, 0.5) 100%
+    );
+}
+
+.blade.low::after {
+    background: rgba(255, 59, 48, 0.3);
+}
+
+/* Medium battery - yellow blade */
+.blade.medium .blade-glow {
+    background: linear-gradient(90deg,
+        rgba(255, 204, 0, 1) 0%,
+        rgba(255, 204, 0, 0.9) 40%,
+        rgba(255, 220, 80, 0.7) 80%,
+        rgba(255, 240, 150, 0.5) 100%
+    );
+}
+
+.blade.medium::after {
+    background: rgba(255, 204, 0, 0.3);
+}
+
+/* Charging animation */
+.blade.charging {
+    animation: pulse-glow 1s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        filter: brightness(1);
+    }
+    50% {
+        filter: brightness(1.2);
+    }
+}
+
+/* Light mode - darker hilt for contrast */
+body.light-mode .hilt-body {
+    background: linear-gradient(180deg,
+        #888 0%,
+        #666 20%,
+        #444 50%,
+        #666 80%,
+        #888 100%
+    );
+    border-color: #333;
+}
+
+body.light-mode .hilt-accent {
+    background: linear-gradient(180deg,
+        #555 0%,
+        #333 50%,
+        #555 100%
+    );
+}
+
+body.light-mode .emitter {
+    background: linear-gradient(180deg,
+        #666 0%,
+        #444 50%,
+        #666 100%
+    );
+}
+
+@media (prefers-color-scheme: light) {
+    .hilt-body {
+        background: linear-gradient(180deg,
+            #888 0%,
+            #666 20%,
+            #444 50%,
+            #666 80%,
+            #888 100%
+        );
+        border-color: #333;
+    }
+
+    .hilt-accent {
+        background: linear-gradient(180deg,
+            #555 0%,
+            #333 50%,
+            #555 100%
+        );
+    }
+
+    .emitter {
+        background: linear-gradient(180deg,
+            #666 0%,
+            #444 50%,
+            #666 100%
+        );
+    }
+}

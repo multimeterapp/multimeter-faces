@@ -1,0 +1,47 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { background: transparent; height: 22px; overflow: hidden; }
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    font-variant-numeric: tabular-nums;
+    --text: #fff;
+    --muted: rgba(255, 255, 255, 0.5);
+    --warning: #ffd60a;
+    --critical: #ff453a;
+}
+[data-scheme="light"] body {
+    --text: #000;
+    --muted: rgba(0, 0, 0, 0.45);
+    --warning: #c98800;
+    --critical: #e0281f;
+}
+
+#meter { display: flex; align-items: center; justify-content: center; gap: 3px; white-space: nowrap; }
+#meter svg { display: block; flex: none; overflow: visible; }
+
+.value { font-size: 12px; font-weight: 500; color: var(--text); letter-spacing: -0.01em; }
+.value[hidden] { display: none; }
+.tinted .value { color: var(--tint); }
+[data-state="warning"] .value { color: var(--warning); }
+[data-state="critical"] .value { color: var(--critical); }
+[data-state="unavailable"] .value { color: var(--muted); }
+
+/* Coffee Cup: the mug is the menu bar's text color (or your color), the
+   coffee stays coffee-colored. Alert levels color the mug. */
+body { --mug: var(--text); --coffee: #c98b55; --crema: #f2c890; --steam: rgba(255, 255, 255, 0.6); }
+[data-scheme="light"] body { --coffee: #7a4724; --crema: #b98250; --steam: rgba(0, 0, 0, 0.45); }
+html body.tinted { --mug: var(--tint); }
+html body[data-state="warning"] { --mug: var(--warning); }
+html body[data-state="critical"] { --mug: var(--critical); }
+html body[data-state="unavailable"] { --mug: var(--muted); }
+
+.mug { fill: var(--mug); }
+.coffee { fill: var(--coffee); }
+.crema { fill: var(--crema); }
+.steam path { fill: none; stroke: var(--steam); stroke-width: 1.2; stroke-linecap: round; }
+.steam { display: none; }
+.charging .steam { display: inline; }

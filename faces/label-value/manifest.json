@@ -1,0 +1,15 @@
+{
+    "id": "10000000-0000-0000-0000-00000000000D",
+    "name": "Label & Value",
+    "description": "Just the words: a small label and the value.",
+    "version": "2.0.0",
+    "apiVersion": 2,
+    "sources": ["any"],
+    "defaultSource": "memory",
+    "width": 70,
+    "minWidth": 40,
+    "maxWidth": 120,
+    "author": "Multimeter",
+    "supportsLightMode": true,
+    "supportsDarkMode": true
+}

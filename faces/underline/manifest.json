@@ -1,0 +1,15 @@
+{
+    "id": "10000000-0000-0000-0000-00000000000F",
+    "name": "Underline",
+    "description": "The value as plain menu bar text, with a thin line underneath that fills.",
+    "version": "2.0.0",
+    "apiVersion": 2,
+    "sources": ["any"],
+    "defaultSource": "memory",
+    "width": 44,
+    "minWidth": 30,
+    "maxWidth": 96,
+    "author": "Multimeter",
+    "supportsLightMode": true,
+    "supportsDarkMode": true
+}

@@ -1,0 +1,41 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { background: transparent; height: 22px; overflow: hidden; }
+
+/* System look: label colors, monochrome until a tint or an alert colors it. */
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    font-variant-numeric: tabular-nums;
+    -webkit-font-smoothing: antialiased;
+    color: #fff;
+    --text: #fff;
+    --muted: rgba(255, 255, 255, 0.6);
+    --track: rgba(255, 255, 255, 0.24);
+    --accent: var(--text);
+    --charge: #30d158;
+    --warning: #ffd60a;
+    --critical: #ff453a;
+}
+[data-scheme="light"] body {
+    color: #000;
+    --text: #000;
+    --muted: rgba(0, 0, 0, 0.5);
+    --track: rgba(0, 0, 0, 0.16);
+    --charge: #1fa846;
+    --warning: #d99a00;
+    --critical: #e5322d;
+}
+
+/* Pie: a rim and a solid wedge, in the menu bar's label color. */
+#pie { display: block; overflow: visible; }
+#rim { fill: none; stroke: var(--accent); stroke-width: 1.5; }
+#wedge { fill: var(--accent); }
+[data-state="warning"] #rim, [data-state="warning"] #wedge { stroke: var(--warning); fill: var(--warning); }
+[data-state="warning"] #rim { fill: none; }
+[data-state="critical"] #rim, [data-state="critical"] #wedge { stroke: var(--critical); fill: var(--critical); }
+[data-state="critical"] #rim { fill: none; }
+.charging #wedge { fill: var(--charge); }
+[data-state="unavailable"] #rim { stroke: var(--muted); stroke-dasharray: 2 2; }

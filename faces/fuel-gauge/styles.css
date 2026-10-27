@@ -1,0 +1,37 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { background: transparent; height: 22px; overflow: hidden; }
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    --needle: #ff5a1f;
+    --lamp: #ffb000;
+}
+
+#gauge { display: block; }
+
+/* Black dash cluster, a hairline rim that reads on both menu bars. */
+.bezel { fill: url(#dash); stroke: rgba(255, 255, 255, 0.26); stroke-width: 0.6; }
+[data-scheme="light"] .bezel { stroke: rgba(0, 0, 0, 0.5); }
+.glass { fill: rgba(255, 255, 255, 0.05); }
+
+.tick { stroke: #ececec; stroke-width: 0.7; stroke-linecap: butt; }
+.tick.major { stroke-width: 1.05; }
+.reserve { fill: none; stroke: #ff3b30; stroke-width: 1.6; }
+.letter { fill: none; stroke: #ececec; stroke-width: 0.85; stroke-linecap: square; stroke-linejoin: miter; }
+
+.pump, .pump-hose { fill: #8e8e93; }
+.pump-hose { fill: none; stroke: #8e8e93; stroke-width: 0.6; stroke-linecap: round; stroke-linejoin: round; }
+.pump-glow { fill: var(--lamp); opacity: 0; }
+.lamp .pump { fill: var(--lamp); }
+.lamp .pump-hose { stroke: var(--lamp); }
+.lamp .pump-glow { opacity: 0.7; }
+
+.needle { fill: var(--needle); }
+#needle { transform-origin: 18px 19.5px; }
+.hub { stroke: rgba(255, 255, 255, 0.25); stroke-width: 0.4; }
+
+.unavailable #needle { opacity: 0.25; }
+.unavailable .pump { fill: #4a4a4e; }

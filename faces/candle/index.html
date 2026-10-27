@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="meter">
+        <svg id="candle" width="12" height="22" viewBox="0 0 12 22" aria-hidden="true">
+            <path id="smoke" class="smoke" d=""/>
+            <path id="glow" class="glow" d=""/>
+            <path id="flame" class="flame" d=""/>
+            <path id="core" class="core" d=""/>
+            <rect id="wick" class="wick" x="5.5" y="0" width="1" height="2"/>
+            <path id="wax" class="wax" d=""/>
+            <path id="drip" class="drip" d=""/>
+            <rect class="dish" x="1" y="19.5" width="10" height="1.5" rx="0.75"/>
+        </svg>
+        <span id="value" class="value"></span>
+    </div>
+    <script src="meter.js"></script>
+</body>
+</html>

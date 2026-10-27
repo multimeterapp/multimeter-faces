@@ -1,0 +1,8 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { background: transparent; height: 22px; overflow: hidden; }
+
+body { display: flex; align-items: center; justify-content: center; }
+
+/* Drawn on a 1-point pixel grid, so it stays crisp at 1x and 2x. */
+#xp { display: block; width: 100%; height: 22px; image-rendering: pixelated; }

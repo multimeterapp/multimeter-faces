@@ -1,0 +1,17 @@
+{
+    "id": "10000000-0000-0000-0000-00000000001F",
+    "name": "Mood",
+    "description": "A little face that smiles while things are fine and worries when they aren't.",
+    "version": "2.0.0",
+    "apiVersion": 2,
+    "sources": [
+        "any"
+    ],
+    "defaultSource": "cpu",
+    "width": 22,
+    "minWidth": 20,
+    "maxWidth": 64,
+    "author": "Multimeter",
+    "supportsLightMode": true,
+    "supportsDarkMode": true
+}
