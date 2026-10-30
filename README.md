@@ -53,7 +53,7 @@ Faces ship with Multimeter. To try a changed copy: zip the folder, rename the `.
 ## Make your own
 
 1. In Multimeter's Settings, click **Create Face…** (Option-Command-N).
-2. Edit `index.html`, `styles.css` and `meter.js`. Multimeter reloads the face every time you save.
+2. Edit `index.html`, `styles.css` and `meter.js`. Quit and reopen Multimeter to see your changes.
 3. Share it: zip the folder, rename it to `.multimeter`, and submit it to the [gallery](https://multimeterapp.com/gallery).
 
 Each face gets `window.meterData` (value, level from 0 to 1, formatted text, label, unit, state, tint, recent history and more) and a `meterUpdate` event whenever it changes. `manifest.json` names the face, its width and the sources it works with.
