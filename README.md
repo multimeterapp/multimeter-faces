@@ -1,6 +1,6 @@
 # Multimeter faces
 
-Every meter in [Multimeter](https://multimeterapp.com), the Mac menu bar app, is drawn by a face: a small folder with an HTML file, a stylesheet and a script. These are the 35 faces that ship with the app, plus two examples to start from.
+Every meter in [Multimeter](https://multimeterapp.com/?ref=github-faces), the Mac menu bar app, is drawn by a face: a small folder with an HTML file, a stylesheet and a script. These are the 35 faces that ship with the app, plus two examples to start from.
 
 ![All 35 Multimeter faces](faces.gif)
 
@@ -54,15 +54,15 @@ Faces ship with Multimeter. To try a changed copy: zip the folder, rename the `.
 
 1. In Multimeter's Settings, click **Create Face…** (Option-Command-N).
 2. Edit `index.html`, `styles.css` and `meter.js`. Quit and reopen Multimeter to see your changes.
-3. Share it: zip the folder, rename it to `.multimeter`, and submit it to the [gallery](https://multimeterapp.com/gallery).
+3. Share it: zip the folder, rename it to `.multimeter`, and submit it to the [gallery](https://multimeterapp.com/gallery?ref=github-faces).
 
 Each face gets `window.meterData` (value, level from 0 to 1, formatted text, label, unit, state, tint, recent history and more) and a `meterUpdate` event whenever it changes. `manifest.json` names the face, its width and the sources it works with.
 
-- Tutorial: https://multimeterapp.com/guides/build-a-face
-- Every field a face receives: https://multimeterapp.com/creating-meters
+- Tutorial: https://multimeterapp.com/guides/build-a-face?ref=github-faces
+- Every field a face receives: https://multimeterapp.com/creating-meters?ref=github-faces
 
 One tip from building these: animate with a short timer (the built-in faces tween at 30 fps) instead of CSS transitions on values that change often. A transition keeps the menu bar redrawing at the display's full refresh rate and costs real battery.
 
 ## License
 
-MIT for everything in this repo (see [LICENSE](LICENSE)). Multimeter itself is a paid Mac app from Great Work: [multimeterapp.com](https://multimeterapp.com).
+MIT for everything in this repo (see [LICENSE](LICENSE)). Multimeter itself is a paid Mac app from Great Work: [multimeterapp.com](https://multimeterapp.com/?ref=github-faces).
